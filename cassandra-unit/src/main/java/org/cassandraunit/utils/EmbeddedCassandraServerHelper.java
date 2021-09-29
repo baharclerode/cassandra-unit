@@ -13,24 +13,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.reader.UnicodeReader;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -111,12 +101,16 @@ public class EmbeddedCassandraServerHelper {
     public static void startEmbeddedCassandra(File file, long timeout) throws IOException, ConfigurationException {
         startEmbeddedCassandra(file, DEFAULT_TMP_DIR, timeout);
     }
-        /**
-         * Set embedded cassandra up and spawn it in a new thread.
-         *
-         * @throws IOException
-         * @throws ConfigurationException
-         */
+
+    /**
+     * Set embedded cassandra up and spawn it in a new thread.
+     *
+     * @param file    The configuration file
+     * @param tmpDir  Temporary directory to use
+     * @param timeout Maximum time to wait for the server to start up
+     * @throws IOException            If there's an error writing or reading from disk
+     * @throws ConfigurationException If there's an issue with the cassandra configuration
+     */
     public static void startEmbeddedCassandra(File file, String tmpDir, long timeout) throws IOException, ConfigurationException {
         if (cassandraDaemon != null) {
             /* nothing to do Cassandra is already started */
@@ -198,6 +192,8 @@ public class EmbeddedCassandraServerHelper {
 
     /**
      * truncate data in keyspace, except specified tables
+     * @param keyspace Keyspace to clean
+     * @param excludedTables Tables to ignore inside the keyspace
      */
     public static void cleanDataEmbeddedCassandra(String keyspace, String... excludedTables) {
             if (session != null) {
@@ -265,7 +261,7 @@ public class EmbeddedCassandraServerHelper {
 
         session.getMetadata().getKeyspace(keyspace).get().getTables().values().stream()
                 .map(table -> table.getName())
-                .filter(tableName -> !excludedTableList.contains(tableName))
+                .filter(tableName -> !excludedTableList.contains(tableName.toString()))
                 .map(tableName -> keyspace + "." + tableName)
                 .forEach(CqlOperations.truncateTable(session));
     }

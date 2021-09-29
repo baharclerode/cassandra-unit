@@ -6,6 +6,7 @@ import org.apache.commons.cli.CommandLine;
 import org.cassandraunit.utils.EmbeddedCassandraServerHelper;
 import org.cassandraunit.utils.FileTmpHelper;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -13,6 +14,7 @@ import static org.junit.Assert.assertThat;
 
 public class CassandraUnitCommandLineLoaderTest {
 
+    @Ignore
     public void shouldPrintUsageWhenNoArgumentsSpecified() {
         String[] args = {};
         CassandraUnitCommandLineLoader.main(args);

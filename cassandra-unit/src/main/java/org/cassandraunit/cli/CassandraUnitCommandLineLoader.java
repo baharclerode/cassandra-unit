@@ -19,10 +19,6 @@ public class CassandraUnitCommandLineLoader {
 
     private static boolean usageBeenPrinted = false;
 
-    /**
-     * @param args
-     * @throws ParseException
-     */
     public static void main(String[] args) {
         boolean exit = parseCommandLine(args);
         if (exit) {

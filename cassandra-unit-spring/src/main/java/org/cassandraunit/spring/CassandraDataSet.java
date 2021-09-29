@@ -12,13 +12,13 @@ import java.lang.annotation.Target;
 /**
  * <p>This class should be used as follows :</p>
  * <blockquote><pre>
- * @RunWith(SpringJUnit4ClassRunner.class)
- * @ContextConfiguration
- * @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class, CassandraUnitTestExecutionListener.class })
- * @EmbeddedCassandra
- * @CassandraDataSet
+ * &#64;RunWith(SpringJUnit4ClassRunner.class)
+ * &#64;ContextConfiguration
+ * &#64;TestExecutionListeners({ DependencyInjectionTestExecutionListener.class, CassandraUnitTestExecutionListener.class })
+ * &#64;EmbeddedCassandra
+ * &#64;CassandraDataSet
  * public class MyClassTest {
- * @Test
+ * &#64;Test
  * public void xxx_xxx() throws Exception {
  * }
  * }
@@ -26,12 +26,12 @@ import java.lang.annotation.Target;
  *
  * or if you use convention over configuration:
  * <blockquote><pre>
- * @RunWith(SpringJUnit4ClassRunner.class)
- * @ContextConfiguration
- * @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class, CassandraUnitTestExecutionListener.class })
- * @CassandraUnit
+ * &#64;RunWith(SpringJUnit4ClassRunner.class)
+ * &#64;ContextConfiguration
+ * &#64;TestExecutionListeners({ DependencyInjectionTestExecutionListener.class, CassandraUnitTestExecutionListener.class })
+ * &#64;CassandraUnit
  * public class MyClassTest {
- * @Test
+ * &#64;Test
  * public void xxx_xxx() throws Exception {
  * }
  * }
