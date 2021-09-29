@@ -172,6 +172,23 @@
                     </ignoredUnusedDeclaredDependencies>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>zone.dragon.maven.plugin</groupId>
+                <artifactId>deployable-pom-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>create-deployable-pom</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>create-deployable-shaded-pom</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>resolve-ci-properties</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
