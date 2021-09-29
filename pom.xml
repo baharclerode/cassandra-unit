@@ -9,7 +9,7 @@
 
     <groupId>zone.dragon.baharclerode</groupId>
     <artifactId>cassandra-unit-parent</artifactId>
-    <version>4.3.1.${revision}</version>
+    <version>4.3.2.${revision}</version>
 
     <packaging>pom</packaging>
     <name>Cassandra Unit</name>
@@ -58,17 +58,17 @@
             <dependency>
                 <groupId>zone.dragon.baharclerode</groupId>
                 <artifactId>cassandra-unit</artifactId>
-                <version>4.3.1.${revision}</version>
+                <version>4.3.2.${revision}</version>
             </dependency>
             <dependency>
                 <groupId>zone.dragon.baharclerode</groupId>
                 <artifactId>cassandra-unit-shaded</artifactId>
-                <version>4.3.1.${revision}</version>
+                <version>4.3.2.${revision}</version>
             </dependency>
             <dependency>
                 <groupId>zone.dragon.baharclerode</groupId>
                 <artifactId>cassandra-unit-spring</artifactId>
-                <version>4.3.1.${revision}</version>
+                <version>4.3.2.${revision}</version>
             </dependency>
 
             <!-- Pin dependency versions so that they converge -->
