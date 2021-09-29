@@ -18,7 +18,6 @@
         <dependency>
             <groupId>zone.dragon.baharclerode</groupId>
             <artifactId>cassandra-unit</artifactId>
-            <scope>runtime</scope>
             <exclusions>
                 <exclusion>
                     <groupId>org.hamcrest</groupId>
@@ -163,6 +162,14 @@
                             <version>1.1</version>
                         </additionalDependency>
                     </additionalDependencies>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <configuration>
+                    <ignoredUnusedDeclaredDependencies>
+                        <ignoredUnusedDeclaredDependency>zone.dragon.baharclerode:cassandra-unit</ignoredUnusedDeclaredDependency>
+                    </ignoredUnusedDeclaredDependencies>
                 </configuration>
             </plugin>
         </plugins>
