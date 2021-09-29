@@ -1,6 +1,8 @@
 WELCOME to CassandraUnit
 ========================
 
+*Note that this project was forked from [jsevellec](https://github.com/jsevellec/cassandra-unit) with changes to fix the shaded module*
+
 Everything is in the wiki : 
 https://github.com/jsevellec/cassandra-unit/wiki
 
